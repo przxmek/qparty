@@ -13,12 +13,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/styles.css' %}">
 
-    {% block optional-stylesheets %}{% endblock %}
+    {% block stylesheets %}{% endblock %}
 </head>
 <body>
-    {% block content %}{% endblock %}
+    {% block content %}
+        {block content}
+    {% endblock %}
 
-    {# JQuery 1..11.1 #}
+    {# JQuery 1.11.1 #}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     {# Bootstrap 3.2.0 #}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

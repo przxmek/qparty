@@ -1,16 +1,18 @@
+{% extends 'base.html' %}
+
 {% load staticfiles %}
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>QParty Webplayer</title>
 
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+{% block title %}QParty Player{% endblock %}
 
-    <link rel="stylesheet" href="{% static 'webplayer/webplayer.css' %}" />
-</head>
-<body>
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'webplayer/webplayer.css' %}"/>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'webplayer/webplayer.js' %}"></script>
+{% endblock %}
+
+{% block content %}
     {# NAVBAR #}
     <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
@@ -29,24 +31,17 @@
 
     {# CONTENT #}
     <div class="container-fluid">
-        {% block content %}{block content}{% endblock %}
+        {% block player-content %}{ block content }{% endblock %}
     </div>
 
     {# FOOTER #}
-	<div class="container">
-		<footer class="navbar-fixed-bottom navbar-default">
-			<div class="container">
-				<p class="navbar-text">
-					Copyright © 2014 <a href="mailto:admin@example.com" data-toggle="modal">QParty</a>
-				</p>
-			</div>
-		</footer>
-	</div>
-
-
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-    <script src="{% static 'webplayer/webplayer.js' %}"></script>
-</body>
-</html>
+    <div class="container">
+        <footer class="navbar-fixed-bottom navbar-default">
+            <div class="container">
+                <p class="navbar-text">
+                    Copyright © 2014 <a href="mailto:admin@example.com" data-toggle="modal">QParty</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+{% endblock %}
