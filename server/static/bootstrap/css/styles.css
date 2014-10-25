@@ -14,3 +14,15 @@
     display: flex;
     align-items: center;
 }
+
+.content {
+    width: 200%;
+    height: 100%;
+    position: absolute;
+}
+
+.content-div {
+    width: 49%;
+    height: 100%;
+    display: inline-block;
+}

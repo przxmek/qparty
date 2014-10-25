@@ -4,6 +4,8 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block title %}
         <title>
             QParty
@@ -14,7 +16,9 @@
         <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/styles.css' %}">
         <!-- Latest compiled and minified JavaScript -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="{% static 'javascript/scripts.js' %}"></script>
     {% endblock %}
 </head>
 <body>
@@ -28,8 +32,8 @@
                 </div>
                 <div class="col-xs-12 col-md-4">
                     <div id="nav-buttons" class="btn-group btn-group-2">
-                        <div class="btn btn-lg btn-default active"><a href="#">Search</a></div>
-                        <div class="btn btn-lg btn-default"><a href="#about">Playlist</a></div>
+                        <div id="set-search-btn" class="btn btn-lg btn-default active"><a href="#">Search</a></div>
+                        <div id="set-playlist-btn" class="btn btn-lg btn-default"><a href="#about">Playlist</a></div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-4">
@@ -48,7 +52,118 @@
     </div>
 {% endblock %}
 
-{% block content %}
+{% block playlist %}
+    <div class="container-fluid">
+        <div class="content">
+            <div id="playlist" class="content-div">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Length
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            ABC
+                        </td>
+                        <td>
+                            DEF
+                        </td>
+                        <td>
+                            XYZ
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ABC
+                        </td>
+                        <td>
+                            DEF
+                        </td>
+                        <td>
+                            XYZ
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ABC
+                        </td>
+                        <td>
+                            DEF
+                        </td>
+                        <td>
+                            XYZ
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="search-list" class="content-div">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Length
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            ABC
+                        </td>
+                        <td>
+                            DEF
+                        </td>
+                        <td>
+                            XYZ
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ABC
+                        </td>
+                        <td>
+                            DEF
+                        </td>
+                        <td>
+                            XYZ
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ABC
+                        </td>
+                        <td>
+                            DEF
+                        </td>
+                        <td>
+                            XYZ
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block search_results %}
 {% endblock %}
 
 </body>
