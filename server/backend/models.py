@@ -11,8 +11,10 @@ class Party(models.Model):
     tag = models.CharField(max_length=50)
     songs = models.ManyToManyField(Song)
 
-    def clean(self):
-        self.tag = self.pk + ""
+    def init_party(self):
+        self.save()
+        self.tag = self.pk.__str__()
+        self.save()
 
     def add_song(self, song):
         self.songs.add(song)
