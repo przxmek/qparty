@@ -10,6 +10,8 @@ class Song(models.Model):
 class Party(models.Model):
     tag = models.CharField(max_length=50)
     songs = models.ManyToManyField(Song)
+    admins = models.ManyToManyField('User', related_name='admins')
+    password = models.CharField(max_length=50)
 
     def init_party(self):
         self.save()

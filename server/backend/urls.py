@@ -8,4 +8,5 @@ urlpatterns = patterns('',
     url(r'^join_party$', views.join_party, name='join_party'),
     url(r'^player$', views.player, name='player'),
     url(r'^player/logout$', views.logout, name='player_logout'),
+    url(r'^player/set_password$', views.set_password, name='set_password'),
 )

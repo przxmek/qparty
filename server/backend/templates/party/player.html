@@ -5,7 +5,11 @@
     <title></title>
 </head>
 <body>
-<h1>Party tag: {{ user.party.tag }}</h1>
-<a href="{% url 'player_logout' %}">Logout</a>
+    <h1>Party tag: {{ user.party.tag }}</h1>
+    <a href="{% url 'player_logout' %}">Logout</a>
+    {% if admin %}
+        <h1>I AM MASTER OF THE PARTY</h1>
+        <a href="{% url 'set_password' %}">Set password</a>
+    {% endif %}
 </body>
 </html>
