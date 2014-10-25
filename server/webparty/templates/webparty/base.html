@@ -1,0 +1,60 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>
+            QParty
+        </title>
+    {% endblock %}
+    {% block bootstrap %}
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/styles.css' %}">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    {% endblock %}
+</head>
+<body>
+
+{% block navbar %}
+    <div id="header-container" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header col-md-4" align="center">
+                    <a class="navbar-brand" href="#">Currenlty playing</a>
+                </div>
+                <div class="col-md-4">
+                    <ul id="nav-buttons" class="row nav navbar-nav">
+                        <li class="col-xs-6">
+                            <a href="#">ssss</a>
+                        </li>
+                        <li class="col-xs-6">
+                            <a href="#">aaaaaaa</a>
+                        </li>
+                    </ul>
+{#                    <div class="row nav navbar-nav">#}
+{#                        <a  href="#">#}
+{#                            <div class="col-xs-6" align="center">#}
+{#                                xzczxcd#}
+{#                            </div>#}
+{#                        </a>#}
+{#                        <div class="col-xs-6" align="center">#}
+{#                            <a href="#">xzcasasassasad</a>#}
+{#                        </div>#}
+{#                    </div>#}
+                </div>
+                <div class="col-md-4" align="center">
+                    <a class="btn btn-default" href="#">Search </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

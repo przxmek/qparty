@@ -1,0 +1,10 @@
+#nav-buttons {
+    margin: 0px;
+    padding: 0px;
+}
+
+#nav-buttons li {
+    margin: 0 auto;
+    padding: 0px;
+    display: inline-block;
+}
