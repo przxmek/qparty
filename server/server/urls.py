@@ -3,9 +3,7 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
     url(r'^player/', include('webplayer.urls')),
-    # Examples:
-    # url(r'^$', 'server.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^webparty/', include('webparty.urls', namespace="webparty")),
 
     url(r'^admin/', include(admin.site.urls)),
 )
