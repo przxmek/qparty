@@ -8,3 +8,20 @@
     padding: 0px;
     display: inline-block;
 }
+
+.nav-search-widget {
+    display: inline-block;
+}
+
+.wrapper {
+    width: 200%;
+    height: 200px;
+    position: absolute;
+}
+
+.content-div {
+    width: 49%;
+    height: 200px;
+    background-color: red;
+    display: inline-block;
+}
