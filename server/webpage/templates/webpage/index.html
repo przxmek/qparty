@@ -1,0 +1,54 @@
+{% extends 'webpage/base.html' %}
+
+{% block webpage-content %}
+    {# Main (Home) section #}
+    <section class="section" id="head">
+        <div class="container opaque-box">
+
+            <div class="row">
+                <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">
+                    <h1 class="title">QParty</h1>
+
+                    <h2 class="subtitle">A great subheader!</h2>
+
+                    {# Short introductory (optional) #}
+                    <h3 class="tagline">
+                        And a very brief description for newcommers<br>
+                        So, they would feel excited about this site.
+                    </h3>
+
+                    {% if party_tag %}
+                        <div class="row">
+                            <div class="col-xs-offset-2 col-xs-4">
+                                <p class="text-danger">Party with tag <strong>{{ party_tag }}</strong> does not exist.</p>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-4">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="input-group input-group-lg">
+                                    <input type="text" class="form-control" name="party_tag" placeholder="Party tag...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">Join party</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="{% url 'index' %}" class="btn btn-default btn-lg">Host party</a>
+                        </div>
+                        <div class="col-xs-3"></div>
+                    </div>
+
+                </div>
+                {# /col #}
+            </div>
+            {# /row #}
+
+        </div>
+    </section>
+{% endblock %}

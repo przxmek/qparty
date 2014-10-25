@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}QParty Player{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'webpage/css/webpage.css' %}">
+
+    {# Fonts #}
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'webpage/js/modernizr.custom.72241.js' %}"></script>
+    {# Custom template scripts #}
+    <script src="{% static 'webpage/js/webpage.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<body>
+    {% block webpage-content %}{ block webpage-content }{% endblock %}
+</body>
+{% endblock %}
