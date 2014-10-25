@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Party',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
                 ('tag', models.CharField(max_length=50)),
             ],
             options={
@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Song',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
                 ('service_id', models.CharField(max_length=50)),
                 ('voting_result', models.IntegerField(default=0)),
             ],
@@ -35,11 +35,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='User',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
-                ('downvoted_songs', models.ManyToManyField(related_name='downvoters', to='backend.Song')),
-                ('party', models.ForeignKey(to='backend.Party')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('downvoted_songs', models.ManyToManyField(to='backend.Song', related_name='downvoters')),
+                ('party', models.ForeignKey(to='backend.Party', null=True, blank=True)),
                 ('session', models.ForeignKey(to='sessions.Session')),
-                ('upvoted_songs', models.ManyToManyField(related_name='upvoters', to='backend.Song')),
+                ('upvoted_songs', models.ManyToManyField(to='backend.Song', related_name='upvoters')),
             ],
             options={
             },

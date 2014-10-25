@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     url(r'^host_party$', views.host_party, name='host_party'),
     url(r'^join_party$', views.join_party, name='join_party'),
     url(r'^player$', views.player, name='player'),
+    url(r'^player/logout$', views.logout, name='player_logout'),
 )

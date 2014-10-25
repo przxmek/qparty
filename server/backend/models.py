@@ -27,7 +27,7 @@ class Party(models.Model):
 
 class User(models.Model):
     session = models.ForeignKey(Session)
-    party = models.ForeignKey(Party)
+    party = models.ForeignKey(Party, blank=True, null=True)
     upvoted_songs = models.ManyToManyField(Song, related_name='upvoters')
     downvoted_songs = models.ManyToManyField(Song, related_name='downvoters')
 
