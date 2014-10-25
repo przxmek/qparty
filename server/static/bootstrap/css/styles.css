@@ -15,15 +15,14 @@
     align-items: center;
 }
 
-.wrapper {
+.content {
     width: 200%;
-    height: 200px;
+    height: 100%;
     position: absolute;
 }
 
 .content-div {
     width: 49%;
-    height: 200px;
-    background-color: red;
+    height: 100%;
     display: inline-block;
 }

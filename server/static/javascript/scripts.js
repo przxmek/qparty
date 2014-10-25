@@ -5,7 +5,17 @@
 //});
 
 $(document).ready(function(){
-  $("#playlist-btn").click(function(){
-    $(".wrapper").stop().animate({"left": "-1330px"}, "slow");
+    var inPlaylist = true;
+  $("#set-playlist-btn").click(function(){
+      if (inPlaylist) {
+          $(".content").animate({"left": "-97%"}, "slow");
+          inPlaylist = false
+      }
+  });
+  $("#set-search-btn").click(function(){
+      if (!inPlaylist) {
+          $(".content").animate({"left": "1%"}, "slow");
+          inPlaylist = true;
+      }
   });
 });
