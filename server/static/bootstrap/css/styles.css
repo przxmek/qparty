@@ -1,10 +1,16 @@
-#nav-buttons {
-    margin: 0px;
-    padding: 0px;
+.btn-group-2 {
+    width: 100%;
 }
 
-#nav-buttons li {
-    margin: 0 auto;
-    padding: 0px;
-    display: inline-block;
+.btn-group-2 .btn {
+    width: 50%;
+}
+
+.navbar .row .col-xs-12 {
+    margin: .3em 0;
+}
+
+.vcenter {
+    display: flex;
+    align-items: center;
 }
