@@ -1,3 +1,5 @@
 from django.contrib import admin
+from backend.models import Party, User
 
-# Register your models here.
+admin.site.register(Party)
+admin.site.register(User)
