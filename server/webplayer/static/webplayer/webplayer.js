@@ -23,6 +23,7 @@ function popSong() {
 }
 
 function onPlayerReady(event) {
+    $('#player').addClass('player')
     playNextSong();
 }
 

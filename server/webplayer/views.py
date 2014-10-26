@@ -26,7 +26,7 @@ def playlist(request):
         raise Http404
 
     user = get_user(request)
-    songs_list = user.party.songs.order_by('-voting_result')
+    songs_list = user.party.songs.order_by('-voting_result', 'id')[:15]
 
     return render(request, 'webplayer/playlist.html', {'songs_list': songs_list})
 

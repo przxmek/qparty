@@ -1,35 +1,23 @@
 {% extends 'webplayer/base.html' %}
 
 {% block player-content %}
-    <h2>TAG {{ user.party.tag }}</h2>
-<div class="row">
-    <div class="video_screen col-xs-12 col-lg-8">
-        <div class="video_wrapper">
-{#            <iframe id="player" src="//www.youtube.com/embed/A7vLLfb17gQ?autoplay=1" width="800" height="485" frameborder="0" allowfullscreen></iframe>#}
-            <div id="player"></div>
+    <div class="row">
+        <div class="col-xs-12 col-lg-offset-8 col-lg-4">
+            <div>
+                <h2 class="text-center"><strong>{{ user.party.tag }}</strong> is your party tag</h2>
+            </div>
         </div>
     </div>
-
-    <div id="playlist-container" class="col-xs-12 col-lg-4">
-{#        <div class="list-group">#}
-{#            <p class="list-group-item list-group-item-info text-center">Playing: <a href="https://www.youtube.com/watch?v=A7vLLfb17gQ&autoplay=0" target="_blank"><strong>T-Mass & PatrickReza - Faith</strong></a></p>#}
-{##}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=a2YztBB4Mnc&autoplay=0" target="_blank">Rootkit - Against the Sun (feat. Anna Yvette)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=Bf8JpkR2x08&autoplay=0" target="_blank">Ben Sollee - Letting Go (Thomas Jack Remix)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=oU_NPjJcc_M&autoplay=0" target="_blank">Rootkit - Against the Sun (feat. Anna Yvette)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=hbRbrDyjgVY&autoplay=0" target="_blank">Hundaes - If Only</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=FE7roOmsxUQ&autoplay=0" target="_blank">Sam Smith - Stay With Me (Echos Remix)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=a2YztBB4Mnc&autoplay=0" target="_blank">Rootkit - Against the Sun (feat. Anna Yvette)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=Bf8JpkR2x08&autoplay=0" target="_blank">Ben Sollee - Letting Go (Thomas Jack Remix)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=oU_NPjJcc_M&autoplay=0" target="_blank">Rootkit - Against the Sun (feat. Anna Yvette)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=hbRbrDyjgVY&autoplay=0" target="_blank">Hundaes - If Only</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=FE7roOmsxUQ&autoplay=0" target="_blank">Sam Smith - Stay With Me (Echos Remix)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=a2YztBB4Mnc&autoplay=0" target="_blank">Rootkit - Against the Sun (feat. Anna Yvette)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=Bf8JpkR2x08&autoplay=0" target="_blank">Ben Sollee - Letting Go (Thomas Jack Remix)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=oU_NPjJcc_M&autoplay=0" target="_blank">Rootkit - Against the Sun (feat. Anna Yvette)</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=hbRbrDyjgVY&autoplay=0" target="_blank">Hundaes - If Only</a>#}
-{#            <a class="list-group-item" href="https://www.youtube.com/watch?v=FE7roOmsxUQ&autoplay=0" target="_blank">Sam Smith - Stay With Me (Echos Remix)</a>#}
-{#        </div>#}
+    <div class="row">
+        <div class="video_screen col-xs-12 col-lg-8">
+            <div class="video_wrapper">
+                <div id="player"></div>
+            </div>
+        </div>
+        <div id="playlist-container" class="col-xs-12 col-lg-4">
+            <div class="list-group">
+                <p class="list-group-item list-group-item-info text-center">Filling your queue</p>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}
