@@ -28,7 +28,8 @@ def playlist(request, template_name='webplayer/playlist.html'):
     user = get_user(request)
     songs_list = user.party.songs.order_by('-voting_result', 'id')[:10]
 
-    return render(request, template_name, {'songs_list': songs_list})
+    return render(request, template_name, {'songs_list': songs_list,
+                                           'user': user})
 
 
 def next_song(request):

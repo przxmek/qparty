@@ -18,13 +18,19 @@
                     </td>
                     <td class="col-votes">
                         <div class="btn-group">
-                            <a value="/webparty/upvote/{{ song.pk }}" class="btn btn-md btn-success vote-btn">
+                            <a value="/webparty/upvote/{{ song.pk }}"
+                               class="btn btn-md btn-success vote-btn"
+                               {% if user in song.upvoters.all %}disabled{% endif %}>
+
                                 <span class="glyphicon glyphicon-plus"></span>
                             </a>
-                            <a id="song_{{ song.pk }}_votes" class="btn btn-md btn-default" disabled="disabled">
+                            <a id="song_{{ song.pk }}_votes"
+                               class="btn btn-md btn-default" disabled="disabled">
                                 {{ song.voting_result }}
                             </a>
-                            <a value="/webparty/downvote/{{ song.pk }}" class="btn btn-md btn-danger vote-btn">
+                            <a value="/webparty/downvote/{{ song.pk }}"
+                               class="btn btn-md btn-danger vote-btn"
+                               {% if user in song.downvoters.all %}disabled{% endif %}>
                                 <span class="glyphicon glyphicon-minus"></span>
                             </a>
                         </div>

@@ -44,7 +44,7 @@ $.ajaxSetup({
 
 function vote(url) {
     $.get(url, function(data) {
-        $("#song_" + data[0] + "_votes").text(data[1]);
+        getPlaylist();
     });
 }
 
@@ -82,7 +82,7 @@ $(document).ready(function(){
     });
     setInterval(function () {
         getPlaylist();
-    }, 1000);
+    }, 3000);
     getPlaylist();
     if (document.getElementById("search-page")) {
         $("#set-search-btn").click()

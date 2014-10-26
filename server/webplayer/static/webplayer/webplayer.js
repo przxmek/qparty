@@ -47,6 +47,6 @@ $(document).ready(function() {
     getPlaylist();
     setInterval(function () {
         getPlaylist();
-    }, 2000);
+    }, 3000);
 
 });

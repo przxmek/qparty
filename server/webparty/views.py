@@ -1,6 +1,6 @@
 import urllib
 from bs4 import BeautifulSoup
-from django.core.serializers import json
+import json
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from backend.models import Song
