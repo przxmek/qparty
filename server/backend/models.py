@@ -7,6 +7,9 @@ class Song(models.Model):
     name = models.CharField(max_length=100)
     voting_result = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.name
+
 
 class Party(models.Model):
     tag = models.CharField(max_length=50)
