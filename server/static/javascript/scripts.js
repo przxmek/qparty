@@ -1,8 +1,18 @@
-//$(function() {
-//    $("#playlist-btn").click(function() {
-//        $("#mybox").animate({"left": "+=50px"}, "slow");
-//    });
-//});
+function vote(url) {
+    $.get(url, function(data) {
+        $("#song_" + data[0] + "_votes").text(data[1]);
+    });
+}
+
+function getPlaylist() {
+    $.get("/player/playlist/votes/", function(data) {
+        $("#playlist").html(data);
+
+        $('.vote-btn').click(function(event) {
+            vote($(this).attr('value'));
+        });
+    });
+}
 
 $(document).ready(function(){
     var inPlaylist = true;
@@ -18,4 +28,8 @@ $(document).ready(function(){
           inPlaylist = false;
       }
   });
+    setInterval(function () {
+        getPlaylist();
+    }, 1000);
+    getPlaylist();
 });

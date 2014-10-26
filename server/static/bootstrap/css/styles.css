@@ -26,3 +26,12 @@
     height: 100%;
     display: inline-block;
 }
+
+.col-name {
+    vertical-align: middle;
+}
+
+.col-votes {
+    text-align: center;
+    width: 180px;
+}
