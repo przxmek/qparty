@@ -1,4 +1,5 @@
 from django.contrib.sessions.models import Session
+from django import forms
 from django.shortcuts import render, redirect
 from backend.forms import JoinPartyForm
 from backend.models import Party, User
@@ -7,6 +8,7 @@ from backend.views import get_user, is_party_assigned
 
 def index(request, template_name='webpage/index.html'):
     join_party_form = JoinPartyForm(request.POST or None)
+    join_party_form.fields['admin_password'].widget = forms.HiddenInput()
 
     if is_party_assigned(request):
         return redirect('webparty:index')

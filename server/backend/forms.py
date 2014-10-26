@@ -3,8 +3,9 @@ from backend.models import Party, User
 
 
 class JoinPartyForm(forms.Form):
-    party_tag = forms.CharField(max_length=50)
-    admin_password = forms.CharField(widget=forms.PasswordInput, required=False)
+    party_tag = forms.CharField(max_length=50, label='Party tag',
+                                widget=forms.TextInput(attrs={'placeholder': 'Party tag..'}))
+    admin_password = forms.CharField(widget=forms.PasswordInput, label='Host password', required=False)
 
     def clean(self):
         party_tag = super(JoinPartyForm, self).clean().get("party_tag")
@@ -14,7 +15,7 @@ class JoinPartyForm(forms.Form):
 
         admin_password = super(JoinPartyForm, self).clean().get("admin_password")
         if admin_password != '' and admin_password != party[0].password:
-            raise forms.ValidationError("Incorrect admin password.")    
+            raise forms.ValidationError("Incorrect admin password.")
 
 
 class SetPasswordForm(forms.Form):
