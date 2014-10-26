@@ -62,13 +62,15 @@ $(document).ready(function(){
     var inPlaylist = true;
   $("#set-playlist-btn").click(function(){
       if (!inPlaylist) {
-          $(".content").animate({"left": "1%"}, "slow");
+          $("#wrapper").removeClass('active-searchlist');
+          $("#wrapper").addClass('active-playlist');
           inPlaylist = true
       }
   });
   $("#set-search-btn").click(function(){
       if (inPlaylist) {
-          $(".content").animate({"left": "-97%"}, "slow");
+          $("#wrapper").removeClass('active-playlist');
+          $("#wrapper").addClass('active-searchlist');
           inPlaylist = false;
       }
   });
