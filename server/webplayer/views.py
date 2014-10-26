@@ -18,7 +18,7 @@ def player(request, template_name='webplayer/player.html'):
     return render(request, template_name, context)
 
 
-def playlist(request):
+def playlist(request, template_name='webplayer/playlist.html'):
     if not request.is_ajax():
         raise Http404
 
@@ -28,7 +28,7 @@ def playlist(request):
     user = get_user(request)
     songs_list = user.party.songs.order_by('-voting_result', 'id')[:15]
 
-    return render(request, 'webplayer/playlist.html', {'songs_list': songs_list})
+    return render(request, template_name, {'songs_list': songs_list})
 
 
 def next_song(request):
@@ -39,7 +39,7 @@ def next_song(request):
         raise Http404
 
     user = get_user(request)
-    next = user.party.songs.order_by('-voting_result')[0]
+    next = user.party.songs.order_by('-voting_result', 'id')[0]
     next.voting_result = 20000
     next.save()
 
@@ -54,6 +54,6 @@ def pop_song(request):
         raise Http404
 
     user = get_user(request)
-    user.party.songs.order_by('-voting_result')[0].delete()
+    user.party.songs.order_by('-voting_result', 'id')[0].delete()
 
     return HttpResponse(status=204)

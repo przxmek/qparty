@@ -1,5 +1,5 @@
 from django.contrib import admin
-from backend.models import Party, User
+from backend.models import Party, User, Song
 
 
 class PartyAdmin(admin.ModelAdmin):

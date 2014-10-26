@@ -2,51 +2,19 @@
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
+            <th style="width: 1px"></th>
             <th>
-                ID
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Length
+                Search results for {{ search_query }}
             </th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>
-                ABC
-            </td>
-            <td>
-                DEF
-            </td>
-            <td>
-                XYZ
-            </td>
-        </tr>
-        <tr>
-            <td>
-                ABC
-            </td>
-            <td>
-                DEF
-            </td>
-            <td>
-                XYZ
-            </td>
-        </tr>
-        <tr>
-            <td>
-                ABC
-            </td>
-            <td>
-                DEF
-            </td>
-            <td>
-                XYZ
-            </td>
-        </tr>
+        {% for result in search_results %}
+            <tr>
+                <td><button class="btn btn-sm btn-primary enqueue-btn" songid='{{ result.0 }}' songname='{{ result.1 }}'>{#<span class="glyphicon glyphicon-hand-right"></span> #}Enqueue</button></td>
+                <td><a style='text-decoration: none' href="https://www.youtube.com/watch?v={{ result.0 }}">{{ result.1 }}</a></td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 </div>
