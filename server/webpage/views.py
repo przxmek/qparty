@@ -8,6 +8,9 @@ from backend.views import get_user, is_party_assigned
 def index(request, template_name='webpage/index.html'):
     join_party_form = JoinPartyForm(request.POST or None)
 
+    if is_party_assigned(request):
+        return redirect('webparty:index')
+
     if join_party_form.is_valid():
         party_tag = join_party_form.cleaned_data['party_tag']
 
