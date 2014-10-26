@@ -1,9 +1,10 @@
 import urllib
 from bs4 import BeautifulSoup
-from django.http import HttpResponse
+from django.core.serializers import json
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from backend.models import Song
-from backend.views import get_user
+from backend.views import get_user, is_party_assigned
 
 
 def index(request):
@@ -39,10 +40,6 @@ def enqueue_song(request):
     user.save()
 
     return HttpResponse(status=204)
-
-
-def index(request):
-    return render(request, "webparty/index.html")
 
 
 def upvote(request, song_id=-1):
