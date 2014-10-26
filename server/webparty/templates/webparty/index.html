@@ -1,1 +1,10 @@
 {% extends 'webparty/base.html' %}
+
+{% block dashboard-content %}
+    <div class="container-fluid">
+        <div class="content">
+            {% include 'webparty/search.html' %}
+            {% include 'webparty/playlist.html' %}
+        </div>
+    </div>
+{% endblock %}
