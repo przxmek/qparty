@@ -7,5 +7,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^backend/', include('backend.urls')),
+    url(r'^backend/', include('backend.urls', namespace='backend')),
+    url(r'^youtube/', include('youtube.urls', namespace='youtube')),
 )

@@ -1,5 +1,5 @@
 from django import forms
-from backend.models import Party, User
+from backend.models import Party
 
 
 class JoinPartyForm(forms.Form):
