@@ -59,7 +59,7 @@ function getPlaylist() {
 }
 
 $(document).ready(function(){
-    var inPlaylist = true;
+  var inPlaylist = true;
   $("#set-playlist-btn").click(function(){
       if (!inPlaylist) {
           $("#wrapper").removeClass('active-searchlist');
@@ -84,4 +84,7 @@ $(document).ready(function(){
         getPlaylist();
     }, 1000);
     getPlaylist();
+    if (document.getElementById("search-page")) {
+        $("#set-search-btn").click()
+    }
 });
