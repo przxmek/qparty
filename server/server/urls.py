@@ -6,4 +6,6 @@ urlpatterns = patterns('',
     url(r'^webparty/', include('webparty.urls', namespace="webparty")),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^backend/', include('backend.urls', namespace='backend')),
+    url(r'^youtube/', include('youtube.urls', namespace='youtube')),
 )
