@@ -2,14 +2,20 @@ import urllib
 from bs4 import BeautifulSoup
 import json
 from django.http import HttpResponse, Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from backend.models import Song
 from backend.views import get_user, is_party_assigned
 
 
 def index(request):
+    if not is_party_assigned(request):
+        return redirect('webpage:index')
+
     if request.method == 'POST':
         search_query = request.POST.get('search_query')
+        if search_query == '':
+            return render(request, "webparty/index.html")
+
         encoded_query = urllib.parse.urlencode({'search_query': search_query})
         response = urllib.request.urlopen('https://www.youtube.com/results?' + encoded_query)
         page_src = response.read()
@@ -26,13 +32,17 @@ def index(request):
         context = {
             'search_query': search_query,
             'search_results': search_results,
+            'user': get_user(request),
         }
         return render(request, "webparty/index.html", context)
 
-    return render(request, "webparty/index.html")
+    return render(request, "webparty/index.html", {'user': get_user(request)})
 
 
 def enqueue_song(request):
+    if not is_party_assigned(request):
+        return redirect('webpage:index')
+
     song = Song(service_id=request.POST.get('songid'), name=request.POST.get('songname'))
     song.save()
     user = get_user(request)
