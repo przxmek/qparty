@@ -1,0 +1,36 @@
+<div class="list-group">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Rating
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for song in songs_list %}
+                <tr>
+                    <td style="vertical-align:middle">
+                        {{ song.name }}
+                    </td>
+                    <td class="col-votes">
+                        <div class="btn-group">
+                            <a value="/webparty/upvote/{{ song.pk }}" class="btn btn-md btn-success vote-btn">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </a>
+                            <a id="song_{{ song.pk }}_votes" class="btn btn-md btn-default" disabled="disabled">
+                                {{ song.voting_result }}
+                            </a>
+                            <a value="/webparty/downvote/{{ song.pk }}" class="btn btn-md btn-danger vote-btn">
+                                <span class="glyphicon glyphicon-minus"></span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

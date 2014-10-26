@@ -8,7 +8,7 @@ class Song(models.Model):
     voting_result = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.name
+        return self.name + " (" + str(self.voting_result) + " votes)"
 
 
 class Party(models.Model):
@@ -30,6 +30,9 @@ class Party(models.Model):
         self.songs.remove(song)
         self.save()
 
+    def __str__(self):
+        return "Party (tag = " + self.tag + ")"
+
 
 class User(models.Model):
     session = models.ForeignKey(Session)
@@ -38,9 +41,9 @@ class User(models.Model):
     downvoted_songs = models.ManyToManyField(Song, related_name='downvoters')
 
     def upvote_song(self, song):
-        if song in self.upvoted_songs:
-            raise Exception("Already upvoted")
-        elif song in self.downvoted_songs:
+        if self.upvoted_songs.filter(pk=song.pk).count() > 0:
+            return
+        elif self.downvoted_songs.filter(pk=song.pk).count() > 0:
             self.downvoted_songs.remove(song)
             song.voting_result += 1
         self.upvoted_songs.add(song)
@@ -49,12 +52,15 @@ class User(models.Model):
         song.save()
 
     def downvote_song(self, song):
-        if song in self.downvoted_songs:
-            raise Exception("Already downvoted")
-        elif song in self.upvoted_songs:
+        if self.downvoted_songs.filter(pk=song.pk).count() > 0:
+            return
+        elif self.upvoted_songs.filter(pk=song.pk).count() > 0:
             self.upvoted_songs.remove(song)
             song.voting_result -= 1
         self.downvoted_songs.add(song)
         song.voting_result -= 1
         self.save()
         song.save()
+
+    def __str__(self):
+        return "User(Session.key = " + self.session.session_key + ", party  = " + str(self.party) + ")"
