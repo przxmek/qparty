@@ -19,11 +19,13 @@ class JoinPartyForm(forms.Form):
 
 
 class SetPasswordForm(forms.Form):
-    password = forms.CharField(widget=forms.PasswordInput, required=False)
-    password_confirmation = forms.CharField(widget=forms.PasswordInput, required=False)
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}), required=False)
+    password_confirmation = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Repeat password'}), required=False)
 
     def clean(self):
         password = super(SetPasswordForm, self).clean().get("password")
         password_confirmation = super(SetPasswordForm, self).clean().get("password_confirmation")
+        if not password:
+            raise forms.ValidationError("Password can't be empty.")
         if password != password_confirmation:
             raise forms.ValidationError("Passwords are not identical.")
