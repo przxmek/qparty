@@ -13,28 +13,40 @@
         <tbody>
             {% for song in songs_list %}
                 <tr>
-                    <td style="vertical-align:middle">
-                        {{ song.name }}
-                    </td>
-                    <td class="col-votes">
-                        <div class="btn-group">
-                            <a value="/webparty/upvote/{{ song.pk }}"
-                               class="btn btn-md btn-success vote-btn"
-                               {% if user in song.upvoters.all %}disabled{% endif %}>
-
-                                <span class="glyphicon glyphicon-plus"></span>
-                            </a>
+                    {% if forloop.first %}
+                        <td style="vertical-align:middle">
+                            <strong>▶ {{ song.name }}</strong>
+                        </td>
+                        <td class="col-votes">
                             <a id="song_{{ song.pk }}_votes"
-                               class="btn btn-md btn-default" disabled="disabled">
+                               class="btn btn-md btn-default" disabled="disabled" style="visibility: hidden;">
                                 {{ song.voting_result }}
                             </a>
-                            <a value="/webparty/downvote/{{ song.pk }}"
-                               class="btn btn-md btn-danger vote-btn"
-                               {% if user in song.downvoters.all %}disabled{% endif %}>
-                                <span class="glyphicon glyphicon-minus"></span>
-                            </a>
-                        </div>
-                    </td>
+                        </td>
+                    {% else %}
+                        <td style="vertical-align:middle">
+                            {{ song.name }}
+                        </td>
+                        <td class="col-votes">
+                            <div class="btn-group">
+                                <a value="/webparty/upvote/{{ song.pk }}"
+                                   class="btn btn-md btn-success vote-btn"
+                                   {% if user in song.upvoters.all %}disabled{% endif %}>
+
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
+                                <a id="song_{{ song.pk }}_votes"
+                                   class="btn btn-md btn-default" disabled="disabled">
+                                    {{ song.voting_result }}
+                                </a>
+                                <a value="/webparty/downvote/{{ song.pk }}"
+                                   class="btn btn-md btn-danger vote-btn"
+                                   {% if user in song.downvoters.all %}disabled{% endif %}>
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                </a>
+                            </div>
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
         </tbody>
