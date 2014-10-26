@@ -296,7 +296,7 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 .opaque-box {
     background:rgba(50, 60, 70, 0.85);
     padding: 1em;
-    border-radius: 2em;
+    /*border-radius: 2em;*/
 }
 
 /***********************************************************/
