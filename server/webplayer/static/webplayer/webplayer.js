@@ -2,7 +2,6 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         width: '800',
         height: '485',
-        videoId: 'zJLGc1XCeq8',
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -10,15 +9,26 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
+function playNextSong() {
+    $.getJSON('/player/next_song/', function(data) {
+        player.loadVideoById(data);
+    });
+}
+
+function popSong() {
+    $.get('/player/pop_song/', function() {
+        getPlaylist();
+        playNextSong();
+    });
+}
+
 function onPlayerReady(event) {
-    event.target.playVideo();
+    playNextSong();
 }
 
 function onPlayerStateChange(event) {
     if (event.data == 0) {
-        $.getJSON('/player/next_song/', function(data) {
-            event.target.loadVideoById(data);
-        });
+        popSong();
     }
 }
 
@@ -36,5 +46,6 @@ $(document).ready(function() {
     getPlaylist();
     setInterval(function () {
         getPlaylist();
-    }, 3000);
+    }, 2000);
+
 });

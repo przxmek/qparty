@@ -1,12 +1,18 @@
 from django.http.response import Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import json
 from django.http import HttpResponse
+from backend.views import is_party_assigned, get_user
 
 
 def player(request, template_name='webplayer/player.html'):
-    context = {
+    if not is_party_assigned(request):
+        raise Http404
 
+    user = get_user(request)
+
+    context = {
+        'user': user,
     }
 
     return render(request, template_name, context)
@@ -15,12 +21,41 @@ def player(request, template_name='webplayer/player.html'):
 def playlist(request):
     if not request.is_ajax():
         raise Http404
-    songs_list = [('a', 'aa'), ('b', 'bb'), ('c', 'cc')]
+
+    if not is_party_assigned(request):
+        raise Http404
+
+    user = get_user(request)
+    songs_list = user.party.songs.order_by('-voting_result')
+
+    print(songs_list)
+
     return render(request, 'webplayer/playlist.html', {'songs_list': songs_list})
 
 
 def next_song(request):
     if not request.is_ajax():
         raise Http404
-    next = 'mCjtUXRJ57o'
-    return HttpResponse(json.dumps(next), content_type="application/json")
+
+    if not is_party_assigned(request):
+        raise Http404
+
+    user = get_user(request)
+    next = user.party.songs.order_by('-voting_result')[0]
+    next.voting_result = 20000
+    next.save()
+
+    return HttpResponse(json.dumps(next.service_id), content_type="application/json")
+
+
+def pop_song(request):
+    if not request.is_ajax():
+        raise Http404
+
+    if not is_party_assigned(request):
+        raise Http404
+
+    user = get_user(request)
+    user.party.songs.order_by('-voting_result')[0].delete()
+
+    return HttpResponse(status=204)

@@ -1,5 +1,5 @@
 <div class="list-group">
-    {% for song,url in songs_list %}
-        <a class="list-group-item" href="{{ url }}" target="_blank">{{ song }}</a>
+    {% for song in songs_list %}
+        <a class="list-group-item" href="{{ song.voting_result }}" target="_blank">{{ song.name }}</a>
     {% endfor %}
 </div>
