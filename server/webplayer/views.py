@@ -28,8 +28,6 @@ def playlist(request):
     user = get_user(request)
     songs_list = user.party.songs.order_by('-voting_result')
 
-    print(songs_list)
-
     return render(request, 'webplayer/playlist.html', {'songs_list': songs_list})
 
 
