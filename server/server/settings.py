@@ -36,8 +36,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'backend',
-    'webplayer',
+    'bootstrapform',
+    'webpage',
     'webparty',
+    'webplayer',
     'youtube',
 )
 
