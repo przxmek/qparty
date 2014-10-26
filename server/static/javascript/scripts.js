@@ -7,15 +7,15 @@
 $(document).ready(function(){
     var inPlaylist = true;
   $("#set-playlist-btn").click(function(){
-      if (inPlaylist) {
-          $(".content").animate({"left": "-97%"}, "slow");
-          inPlaylist = false
+      if (!inPlaylist) {
+          $(".content").animate({"left": "1%"}, "slow");
+          inPlaylist = true
       }
   });
   $("#set-search-btn").click(function(){
-      if (!inPlaylist) {
-          $(".content").animate({"left": "1%"}, "slow");
-          inPlaylist = true;
+      if (inPlaylist) {
+          $(".content").animate({"left": "-97%"}, "slow");
+          inPlaylist = false;
       }
   });
 });
