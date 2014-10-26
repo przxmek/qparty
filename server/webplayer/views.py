@@ -1,5 +1,5 @@
 from django.http.response import Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 import json
 from django.http import HttpResponse
 from backend.views import is_party_assigned, get_user

@@ -54,3 +54,14 @@ def index(request, template_name='webpage/index.html'):
     }
 
     return render(request, template_name, context)
+
+
+def leave(request):
+    if not is_party_assigned(request):
+        return redirect('webpage:index')
+
+    user = get_user(request)
+    user.party = None
+    user.save()
+
+    return redirect('webpage:index')
