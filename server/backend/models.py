@@ -7,6 +7,9 @@ class Song(models.Model):
     name = models.CharField(max_length=100)
     voting_result = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.name + " (" + str(self.voting_result) + " votes)"
+
 
 class Party(models.Model):
     tag = models.CharField(max_length=50)
@@ -26,6 +29,9 @@ class Party(models.Model):
     def remove_song(self, song):
         self.songs.remove(song)
         self.save()
+
+    def __str__(self):
+        return "Party (tag = " + self.tag + ")"
 
 
 class User(models.Model):
@@ -55,3 +61,6 @@ class User(models.Model):
         song.voting_result -= 1
         self.save()
         song.save()
+
+    def __str__(self):
+        return "User(Session.key = " + self.session.session_key + ", party  = " + str(self.party) + ")"
