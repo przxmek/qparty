@@ -78,6 +78,7 @@ $(document).ready(function(){
         var songID = $(this).attr('songid');
         var songName = $(this).attr('songname');
         $.post('/webparty/enqueue_song', {'songid': songID, 'songname': songName}, function() {
+            alert('Song ' + songName + ' added to playlist.')
         });
     });
     setInterval(function () {
