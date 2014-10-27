@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Party tag: {{ user.party.tag }}</h1>
+    <a href="{% url 'backend:player_logout' %}">Logout</a>
+    {% if admin %}
+        <h1>I AM MASTER OF THE PARTY</h1>
+        <a href="{% url 'backend:set_password' %}">Set password</a>
+    {% endif %}
+</body>
+</html>

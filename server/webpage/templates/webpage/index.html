@@ -1,0 +1,72 @@
+{% extends 'webpage/base.html' %}
+
+{% load bootstrap %}
+
+{% block webpage-content %}
+    <section class="section" id="head">
+        <div class="container opaque-box">
+
+            <div class="row">
+                <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">
+                    <h1 class="title">QParty</h1>
+
+                    <h2 class="subtitle">A great subheader!</h2>
+
+                    <h3 class="tagline">
+                        And a very brief description for newcommers<br>
+                        So, they would feel excited about this site.
+                    </h3>
+
+                    <a href="#" class="btn btn-default btn-lg btn-primary" data-toggle="modal"
+                       data-target="#join-modal">Join party</a>
+                    <a href="#" class="btn btn-default btn-lg" data-toggle="modal"
+                       data-target="#host-modal">Host party</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="join-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Join party</h4>
+                </div>
+                <form action="#join-modal" method="post">
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        {{ join_form|bootstrap_inline }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Not now :(</button>
+                        <input type="submit" class="btn btn-primary btn-lg" value="Let's roll!"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="host-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Set host password</h4>
+                </div>
+                <form action="#host-modal" method="post">
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        {{ host_form|bootstrap_inline }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Not now :(</button>
+                        <input type="submit" class="btn btn-primary btn-lg" value="Rock this party!"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

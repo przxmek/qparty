@@ -1,0 +1,23 @@
+{% extends 'webplayer/base.html' %}
+
+{% block player-content %}
+    <div class="row">
+        <div class="col-xs-12 col-lg-offset-8 col-lg-4">
+            <div>
+                <h2 class="text-center"><strong>{{ user.party.tag }}</strong> is your party tag</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="video_screen col-xs-12 col-lg-8">
+            <div class="video_wrapper">
+                <div id="player"></div>
+            </div>
+        </div>
+        <div id="playlist-container" class="col-xs-12 col-lg-4">
+            <div class="list-group">
+                <p class="list-group-item list-group-item-info text-center">Filling your queue</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

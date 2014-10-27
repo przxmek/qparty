@@ -1,0 +1,15 @@
+<div class="list-group">
+    {% for song in songs_list %}
+        {% if forloop.first %}
+            <a class="list-group-item list-group-item-info " href="//youtube.com/watch?v={{ song.service_id }}"
+               target="_blank"><strong>▶ {{ song.name }}</strong></a>
+        {% else %}
+            <a class="list-group-item" href="//youtube.com/watch?v={{ song.service_id }}" target="_blank">
+                {{ song.name|truncatechars:64 }}
+                <span class="badge pull-right"><strong>{{ song.voting_result }}</strong></span>
+            </a>
+        {% endif %}
+    {% empty %}
+        <p class="list-group-item list-group-item-info text-center">Queue is empty</p>
+    {% endfor %}
+</div>
