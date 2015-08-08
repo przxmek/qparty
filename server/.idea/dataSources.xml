@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="427329277">
+    <data-source source="LOCAL" name="Django default" uuid="5fc50981-2431-4252-924a-ad432610ccc7">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://pkuczynski.pl:5432/przxmek_hackathon</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

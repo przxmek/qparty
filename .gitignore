@@ -1,5 +1,4 @@
-__pycache__/
-*.py[cod]
+__pycache__
+venv/
 
-.venv/
-/server/.idea
+*.py[cod]
